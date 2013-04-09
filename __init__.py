@@ -1,4 +1,5 @@
 "(Yet another) simple static site generator"
+
 VERSION = (0, 0, 1)
 
 __author__ = 'Mawuli Adzaku'

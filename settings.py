@@ -37,3 +37,12 @@ MENUITEMS =  (('Weblog', '/'),)
 
 ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
+
+# listening port
+PORT = 8080
+
+# directory holding 
+CONTENT_DIR = "content"
+
+# output directory
+OUTPUT_DIR = "output"
