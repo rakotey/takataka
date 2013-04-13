@@ -149,10 +149,13 @@ def generate(content_path, output_path):
          # copy static files into output directory
          OUTPUT_PATH_STATIC_DIR = os.path.join(OUTPUT_PATH, 'assets')
          
-         import shutil 
-         shutil.rmtree(OUTPUT_PATH_STATIC_DIR)
          import shutil
-         shutil.copytree(STATIC_DIR, OUTPUT_PATH_STATIC_DIR)
+         try:
+            shutil.rmtree(OUTPUT_PATH_STATIC_DIR)
+         except:
+             pass
+         finally:
+            shutil.copytree(STATIC_DIR, OUTPUT_PATH_STATIC_DIR)
     else:
         print "Error: invalid content path or output path"
 
@@ -192,7 +195,7 @@ def watch_dir(path):
 if __name__ == "__main__":
   if "serve" in sys.argv:
      # ternary logic : a = 1 if True else 0
-      port = int(sys.argv[3].strip()) if '-p' in sys.argv else DEFAULT_LISTENING_PORT 
+      port = int(sys.argv[2].strip()) if len(sys.argv) > 2 else DEFAULT_LISTENING_PORT 
       serve(('127.0.0.1', port))
   elif "generate" in sys.argv:
       #print ROOT_PATH,  CONTENT_PATH, OUTPUT_PATH
