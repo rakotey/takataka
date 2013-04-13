@@ -1,0 +1,47 @@
+Title: About
+Date: 2013-03-23 00:31
+
+&lt; div id="about_me" &gt;
+
+&lt; div id="me_picture" &gt;
+!["a picture of me"]("{{SITEURL}}/theme/img/me.jpg" "a picture of myself")	
+
+
+[ ![Image]("{{SITEURL}}/theme/img/github_32.png" "I'm also on Github") ](https://github.com/mawuli-ypa "github")
+
+[ ![Image]("{{SITEURL}}/theme/img/google_plus_32.png" "Add me on Google Plus") ]
+(https://plus.google.com/101891019344348512650/about "Twitter")
+
+[ ![Image]("{{SITEURL}}/theme/img/twitter_32.png" "Follow me on Twitter") ](https://twitter.com/mawuli_ypa "Twitter")
+
+
+
+
+
+&lt;/div>&gt; <!-- picture -->
+
+
+Hey, nice to meet you!
+I'm Mawuli Adzaku. 
+I have always been passionately curious about how things work. 
+After cracking open a few gadgets(esp Mum's radio) in primary school, I finally decided to learn how to program computers.
+The journey is longer than i expected, but sunny side definitely up. 
+
+I do mostly web stuff professionally, but I’m very interested in compilers, operating systems and AI.
+I am currently in my final year at University of Cape Coast, Ghana
+
+
+If you don't feel comfortable sending a plaintext message, use my RSA and DSA PGP keys available.
+
+
+* Email: mawuli at mawuli.me
+
+* Interests:
+   * Computer Programming</li>
+   * Philosophy / Radical Politics / Poetry</li>
+   * Intelligent Machines</li>
+   * Art / Photography</li>
+   * Good Music (i know, very subjective)</li>
+
+&lt;/div &gt; <!-- about-me -->
+

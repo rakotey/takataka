@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}        
+{% if articles %}
+    <h2>Writings currently in the trash bin &raquo;</h2>
+
+                <section id="index">
+                    <ul id="posts-list">
+
+    {% for article in articles %}        
+
+
+       <li>
+		<h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+		<article class="entry-info">
+		  <span class="entry-date">
+			<span class="date">{{ article.date }}</span>
+		  </span>
+		  <div class="clearfix"></div>
+		 </article>
+            </li>
+        
+    {% endfor %}
+            </ul><!-- /#posts-list -->
+     </section><!-- /#content -->
+{% endif %}
+{% endblock content %}
