@@ -27,8 +27,8 @@ SOCIAL = (('twitter', 'http://twitter.com/mawuli_ypa'),
 DEFAULT_PAGINATION = 10
 
 TWITTER_USERNAME = "@mawuli_ypa"
-GITHUB_URL = "http://github.com/mawuli-ypa"
-DISQUS_SITENAME = "mawuli"
+GITHUB_URL = "http://github.com/mawuli-ypa/takataka"
+DISQUS_SITENAME = "takataka"
 
 
 # Menuitems
@@ -46,3 +46,15 @@ CONTENT_DIR = "content"
 
 # output directory
 OUTPUT_DIR = "output"
+
+SITENAME = "TAKATAKA - SWAHILI FOR RUBBISH"
+AUTHOR = " Mawuli Adzaku"
+SITEURL = ""
+
+# display link to pages
+DISPLAY_PAGES_ON_MENU = True
+
+THEME = 'demo'
+
+# directory in theme that holds static files
+STATIC_DIR = 'static'
