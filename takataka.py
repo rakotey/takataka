@@ -14,6 +14,9 @@ import settings
 from markdown import markdownFromFile
 from jinja2 import Environment,FileSystemLoader
 
+# pynotify for monitoring chnages to the files in the content directory
+import pyinotify
+
 # root path of this folder
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 
@@ -187,16 +190,49 @@ def serve(server_address):
     httpd.serve_forever()
 
 
-def watch_dir(path):
-  "wathes content directory for changes and "
-  pass
+def watch_contents_dir(content_path):
+    "wathes content directory for changes and "
+    # watch manager
+    wm = pyinotify.WatchManager()
+    wm.add_watch(content_path, pyinotify.ALL_EVENTS, rec=True)
 
+    # event handler
+    ev_handler = TakatakaEventHandler()
+
+    # now, start the notifier
+    notifier = pyinotify.Notifier(wm, ev_handler)
+    print "started monitoring files in %s" % content_path
+    notifier.loop()
+
+# pyinotify event handler
+class TakatakaEventHandler(pyinotify.ProcessEvent):
+    def process_IN_MODIFY(self, event):
+        print "file modified: ", event.pathname
+        generate_html(CONTENT_PATH, OUTPUT_PATH)
+    
+    def process_IN_CREATE(self, event):
+        print "new file created: ", event.pathname
+        generate_html(CONTENT_PATH, OUTPUT_PATH)
+
+    def process_IN_DELETE(self, event):
+        print "file modified: ", event.pathname
+        generate_html(CONTENT_PATH, OUTPUT_PATH)
+    
+    def process_IN_CLOSE_WRITE(self, event):
+        print "file modified: ", event.pathname
+        generate_html(CONTENT_PATH, OUTPUT_PATH)
+    
 
 if __name__ == "__main__":
   if "serve" in sys.argv:
-     # ternary logic : a = 1 if True else 0
+      # ternary logic : a = 1 if True else 0
       port = int(sys.argv[2].strip()) if len(sys.argv) > 2 else DEFAULT_LISTENING_PORT 
+      # start the server
       serve(('127.0.0.1', port))
+      
+      # run serve and watch in async mode
+      # watch directory for changes
+      #watch_contents_dir(CONTENT_PATH)
   elif "generate" in sys.argv:
       #print ROOT_PATH,  CONTENT_PATH, OUTPUT_PATH
       generate(CONTENT_PATH, OUTPUT_PATH)
